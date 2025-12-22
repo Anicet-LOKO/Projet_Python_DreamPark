@@ -1,0 +1,101 @@
++----------------+        1        +----------------+        *        +----------------+
+|    Voiture     |---------------->|     Ticket     |<----------------|     Place      |
++----------------+                 +----------------+                 +----------------+
+| - immatriculation : str          | - id : str                      | - id : str
+| - longueur : float               | - voiture : Voiture            | - niveau : int
+| - hauteur : float                | - place : Place                | - longueur : float
+| - abonnement : bool              | - mode_paiement : str          | - hauteur : float
++----------------+                 | - abonnement : bool            | - occupee : bool
+| +est_abonne()                    +----------------+               +----------------+
+| +dimensions()                   | +est_valide()
+                                  | +activer_teleporteur()
+
+        1
+        |
+        | uses
+        v
++----------------+        1        +----------------+        *        +----------------+
+|     Acces      |---------------->|   Teleporteur  |<----------------|     Borne      |
++----------------+                 +----------------+                 +----------------+
+| - id : str                      | - id : str                      | - id : str
+| - camera : Camera              | - disponible : bool             | - type_paiement : str
+| - bornes : list[Borne]         +----------------+                 +----------------+
+| - teleporteurs : list[Teleporteur] | +teleporter(voiture, place) | +delivrer_ticket(voiture)
++----------------+                 | +liberer()                    | +payer(ticket)
+| +scanner_voiture()
+| +gerer_entree(voiture)
+| +gerer_sortie(ticket)
+
+        1
+        |
+        | has
+        v
++----------------+
+|    Camera      |
++----------------+
+| +capturer_image()
+| +extraire_infos()
+
+        1
+        |
+        | triggers
+        v
++--------------------------+
+|   Livraison              |
++--------------------------+
+| - adresse : str
+| - heure : datetime
+| - entretien : bool
+| - maintenance : bool
++--------------------------+
+| +livrer_voiture(voiture)
+| +reprendre_voiture(voiture)
+
+        1
+        |
+        | manages
+        v
++--------------------------+
+|   Parking                |
++--------------------------+
+| - places : list[Place]
+| - acces : list[Acces]
+| - statistiques : dict
++--------------------------+
+| +trouver_place(voiture)
+| +mettre_a_jour_affichage()
+| +liberer_place(place)
+| +enregistrer_passage(voiture)
+
+
+
+Explication du modèle
+Ce diagramme modélise les composants essentiels du système DreamPark :
+
+Voiture : représente un véhicule avec ses dimensions et son statut d’abonnement.
+
+Place : chaque emplacement de stationnement a des caractéristiques physiques et un état d’occupation.
+
+Ticket : relie une voiture à une place, enregistre le mode de paiement et l’abonnement.
+
+Accès : point d’entrée/sortie du parking, équipé de caméras, bornes et téléporteurs.
+
+Camera : identifie les véhicules à l’entrée.
+
+Teleporteur : transporte automatiquement les voitures vers leur place.
+
+Borne : délivre les tickets et gère les paiements.
+
+Livraison : service premium pour abonnés, permettant la livraison ou la reprise du véhicule.
+
+Parking : entité centrale qui gère les places, les accès, et les statistiques.
+
+Les cardinalités indiquent les relations :
+
+Une voiture peut avoir plusieurs tickets (historique), mais un seul actif.
+
+Une place peut être liée à plusieurs tickets (dans le temps), mais une seule voiture à la fois.
+
+Un accès contient plusieurs bornes et téléporteurs, mais une seule caméra.
+
+Le parking contient plusieurs places et deux accès.
