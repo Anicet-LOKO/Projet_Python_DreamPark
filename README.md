@@ -1,5 +1,5 @@
 # PROJET DREAM PARK - L3 MIASHS 2024-2025
-![Aperçu de l'interface](DreamPark_interface.png)
+![Aperçu de l'interface](DreamPark_Interface.png)
 Bienvenue dans le dépôt du projet DreamPark, une solution logicielle complète de gestion pour un parking automatisé.
 
 ## Equipe de Développement
