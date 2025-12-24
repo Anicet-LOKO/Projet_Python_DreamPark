@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module metier</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">metier</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cetu%5Cdesktop%5Cl3_miashs2025-2026%5Cpoo%20python%5Cprojet%5Cpartie4%5Cmetier.py">c:\users\etu\desktop\l3_miashs2025-2026\poo python\projet\partie4\metier.py</a></td></tr></table>
+    <p><span class="code">Module&nbsp;métier&nbsp;du&nbsp;système&nbsp;DreamPark.<br>
+&nbsp;<br>
+Ce&nbsp;module&nbsp;définit&nbsp;les&nbsp;classes&nbsp;fondamentales&nbsp;pour&nbsp;la&nbsp;gestion&nbsp;physique&nbsp;du&nbsp;parking,<br>
+incluant&nbsp;la&nbsp;configuration&nbsp;des&nbsp;places,&nbsp;les&nbsp;algorithmes&nbsp;de&nbsp;recherche&nbsp;par&nbsp;zone&nbsp;<br>
+et&nbsp;le&nbsp;système&nbsp;de&nbsp;facturation&nbsp;au&nbsp;temps&nbsp;passé.<br>
+&nbsp;<br>
+Auteur&nbsp;:&nbsp;Jean-Claude</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="datetime.html">datetime</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="metier.html#ParcDeStationnement">ParcDeStationnement</a>
+</dt><dt class="heading-text"><a href="metier.html#PlaceDeParking">PlaceDeParking</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ParcDeStationnement">class <strong>ParcDeStationnement</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#ParcDeStationnement">ParcDeStationnement</a>(nom_du_parking='DreamPark')<br>
+&nbsp;<br>
+Contrôleur&nbsp;de&nbsp;gestion&nbsp;de&nbsp;l'ensemble&nbsp;des&nbsp;places&nbsp;du&nbsp;parking.<br>
+&nbsp;<br>
+Gère&nbsp;l'attribution&nbsp;des&nbsp;places&nbsp;en&nbsp;fonction&nbsp;des&nbsp;secteurs&nbsp;d'entrée,<br>
+le&nbsp;suivi&nbsp;du&nbsp;chiffre&nbsp;d'affaires&nbsp;et&nbsp;la&nbsp;libération&nbsp;des&nbsp;emplacements.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="ParcDeStationnement-__init__"><strong>__init__</strong></a>(self, nom_du_parking='DreamPark')</dt><dd><span class="code">Initialise&nbsp;le&nbsp;parc&nbsp;avec&nbsp;son&nbsp;nom&nbsp;et&nbsp;génère&nbsp;l'inventaire&nbsp;par&nbsp;défaut.</span></dd></dl>
+
+<dl><dt><a name="ParcDeStationnement-liberer_une_place"><strong>liberer_une_place</strong></a>(self, identifiant_place)</dt><dd><span class="code">Libère&nbsp;une&nbsp;place&nbsp;occupée&nbsp;et&nbsp;génère&nbsp;la&nbsp;facturation.<br>
+&nbsp;<br>
+Le&nbsp;prix&nbsp;est&nbsp;calculé&nbsp;au&nbsp;prorata&nbsp;du&nbsp;temps&nbsp;passé&nbsp;(1.50€&nbsp;par&nbsp;minute&nbsp;simulée).<br>
+Met&nbsp;à&nbsp;jour&nbsp;le&nbsp;chiffre&nbsp;d'affaires&nbsp;global&nbsp;du&nbsp;parc.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;identifiant_place&nbsp;(str):&nbsp;L'étiquette&nbsp;de&nbsp;la&nbsp;place&nbsp;à&nbsp;vider.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;si&nbsp;la&nbsp;place&nbsp;existait&nbsp;et&nbsp;était&nbsp;occupée,&nbsp;False&nbsp;sinon.</span></dd></dl>
+
+<dl><dt><a name="ParcDeStationnement-trouver_une_place"><strong>trouver_une_place</strong></a>(self, h_v, l_v, secteur_entree, est_garanti)</dt><dd><span class="code">Recherche&nbsp;une&nbsp;place&nbsp;libre&nbsp;compatible&nbsp;avec&nbsp;le&nbsp;gabarit&nbsp;du&nbsp;véhicule.<br>
+&nbsp;<br>
+L'algorithme&nbsp;priorise&nbsp;le&nbsp;secteur&nbsp;d'entrée&nbsp;de&nbsp;l'usager&nbsp;avant&nbsp;de&nbsp;<br>
+basculer&nbsp;sur&nbsp;le&nbsp;secteur&nbsp;opposé&nbsp;si&nbsp;nécessaire.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h_v&nbsp;(float):&nbsp;Hauteur&nbsp;mesurée&nbsp;du&nbsp;véhicule.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l_v&nbsp;(float):&nbsp;Largeur/Longueur&nbsp;mesurée&nbsp;du&nbsp;véhicule.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;secteur_entree&nbsp;(str):&nbsp;Secteur&nbsp;de&nbsp;la&nbsp;borne&nbsp;d'accès&nbsp;('Nord'&nbsp;ou&nbsp;'Sud').<br>
+&nbsp;&nbsp;&nbsp;&nbsp;est_garanti&nbsp;(bool):&nbsp;Statut&nbsp;du&nbsp;client&nbsp;(Pack&nbsp;Garanti).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PlaceDeParking">PlaceDeParking</a>:&nbsp;L'objet&nbsp;place&nbsp;si&nbsp;trouvé.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;"ORIENTATION_EXTERIEURE"&nbsp;si&nbsp;plein&nbsp;et&nbsp;client&nbsp;garanti.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None:&nbsp;Si&nbsp;aucune&nbsp;solution&nbsp;n'est&nbsp;trouvée&nbsp;pour&nbsp;un&nbsp;client&nbsp;standard.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="PlaceDeParking">class <strong>PlaceDeParking</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#PlaceDeParking">PlaceDeParking</a>(etiquette,&nbsp;secteur,&nbsp;largeur,&nbsp;hauteur)<br>
+&nbsp;<br>
+Représente&nbsp;un&nbsp;emplacement&nbsp;de&nbsp;stationnement&nbsp;individuel.<br>
+&nbsp;<br>
+Cette&nbsp;classe&nbsp;stocke&nbsp;les&nbsp;dimensions&nbsp;physiques&nbsp;de&nbsp;la&nbsp;place&nbsp;ainsi&nbsp;que&nbsp;<br>
+son&nbsp;état&nbsp;d'occupation&nbsp;actuel.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="PlaceDeParking-__init__"><strong>__init__</strong></a>(self, etiquette, secteur, largeur, hauteur)</dt><dd><span class="code">Initialise&nbsp;une&nbsp;place&nbsp;avec&nbsp;ses&nbsp;contraintes&nbsp;de&nbsp;gabarit.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;etiquette&nbsp;(str):&nbsp;Identifiant&nbsp;unique&nbsp;de&nbsp;la&nbsp;place&nbsp;(ex:&nbsp;'NORD-01').<br>
+&nbsp;&nbsp;&nbsp;&nbsp;secteur&nbsp;(str):&nbsp;Zone&nbsp;géographique&nbsp;('Nord'&nbsp;ou&nbsp;'Sud').<br>
+&nbsp;&nbsp;&nbsp;&nbsp;largeur&nbsp;(float):&nbsp;Largeur&nbsp;maximale&nbsp;autorisée.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hauteur&nbsp;(float):&nbsp;Hauteur&nbsp;maximale&nbsp;autorisée.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

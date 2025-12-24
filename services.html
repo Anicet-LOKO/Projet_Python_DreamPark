@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module services</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">services</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cetu%5Cdesktop%5Cl3_miashs2025-2026%5Cpoo%20python%5Cprojet%5Cpartie4%5Cservices.py">c:\users\etu\desktop\l3_miashs2025-2026\poo python\projet\partie4\services.py</a></td></tr></table>
+    <p><span class="code">Module&nbsp;des&nbsp;services&nbsp;polymorphes&nbsp;du&nbsp;DreamPark.<br>
+&nbsp;<br>
+Ce&nbsp;module&nbsp;définit&nbsp;la&nbsp;structure&nbsp;des&nbsp;prestations&nbsp;additionnelles&nbsp;proposées&nbsp;aux&nbsp;clients.<br>
+Il&nbsp;utilise&nbsp;le&nbsp;concept&nbsp;d'héritage&nbsp;et&nbsp;de&nbsp;polymorphisme&nbsp;pour&nbsp;permettre&nbsp;l'extension<br>
+facile&nbsp;du&nbsp;catalogue&nbsp;de&nbsp;services&nbsp;(Lavage,&nbsp;<a href="#Livraison">Livraison</a>,&nbsp;etc.).<br>
+&nbsp;<br>
+Auteur&nbsp;:&nbsp;Anicet-Darcia</span></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="services.html#Service">Service</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="services.html#Livraison">Livraison</a>
+</dt><dt class="heading-text"><a href="services.html#Maintenance">Maintenance</a>
+</dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Livraison">class <strong>Livraison</strong></a>(<a href="services.html#Service">Service</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Livraison">Livraison</a>(adresse,&nbsp;heure)<br>
+&nbsp;<br>
+<a href="#Service">Service</a>&nbsp;de&nbsp;livraison&nbsp;du&nbsp;véhicule&nbsp;par&nbsp;un&nbsp;voiturier.<br>
+&nbsp;<br>
+Permet&nbsp;de&nbsp;restituer&nbsp;le&nbsp;véhicule&nbsp;à&nbsp;une&nbsp;adresse&nbsp;précise&nbsp;plutôt&nbsp;que&nbsp;<br>
+sur&nbsp;le&nbsp;lieu&nbsp;de&nbsp;stationnement&nbsp;initial.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="services.html#Livraison">Livraison</a></dd>
+<dd><a href="services.html#Service">Service</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Livraison-__init__"><strong>__init__</strong></a>(self, adresse, heure)</dt><dd><span class="code">Initialise&nbsp;une&nbsp;demande&nbsp;de&nbsp;livraison.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;adresse&nbsp;(str):&nbsp;Destination&nbsp;de&nbsp;livraison.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;heure&nbsp;(str):&nbsp;Créneau&nbsp;horaire&nbsp;souhaité&nbsp;pour&nbsp;le&nbsp;rendez-vous.</span></dd></dl>
+
+<dl><dt><a name="Livraison-appliquer"><strong>appliquer</strong></a>(self)</dt><dd><span class="code">Retourne&nbsp;les&nbsp;détails&nbsp;logistiques&nbsp;de&nbsp;la&nbsp;livraison.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="services.html#Service">Service</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Maintenance">class <strong>Maintenance</strong></a>(<a href="services.html#Service">Service</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Maintenance">Maintenance</a>(type_action)<br>
+&nbsp;<br>
+<a href="#Service">Service</a>&nbsp;d'entretien&nbsp;technique&nbsp;du&nbsp;véhicule.<br>
+&nbsp;<br>
+Regroupe&nbsp;les&nbsp;actions&nbsp;de&nbsp;nettoyage,&nbsp;de&nbsp;vérification&nbsp;des&nbsp;niveaux&nbsp;ou&nbsp;de&nbsp;pression.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="services.html#Maintenance">Maintenance</a></dd>
+<dd><a href="services.html#Service">Service</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Maintenance-__init__"><strong>__init__</strong></a>(self, type_action)</dt><dd><span class="code">Initialise&nbsp;une&nbsp;action&nbsp;de&nbsp;maintenance.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type_action&nbsp;(str):&nbsp;Nature&nbsp;de&nbsp;l'intervention&nbsp;(ex:&nbsp;'Lavage',&nbsp;'Pression').</span></dd></dl>
+
+<dl><dt><a name="Maintenance-appliquer"><strong>appliquer</strong></a>(self)</dt><dd><span class="code">Retourne&nbsp;la&nbsp;confirmation&nbsp;de&nbsp;l'action&nbsp;de&nbsp;maintenance&nbsp;programmée.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="services.html#Service">Service</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Service">class <strong>Service</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Service">Service</a>(nom_service,&nbsp;prix)<br>
+&nbsp;<br>
+Classe&nbsp;de&nbsp;base&nbsp;abstraite&nbsp;pour&nbsp;tous&nbsp;les&nbsp;services&nbsp;du&nbsp;parking.<br>
+&nbsp;<br>
+Attributs:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nom&nbsp;(str):&nbsp;Désignation&nbsp;commerciale&nbsp;du&nbsp;service.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prix&nbsp;(float):&nbsp;Tarif&nbsp;forfaitaire&nbsp;du&nbsp;service.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Service-__init__"><strong>__init__</strong></a>(self, nom_service, prix)</dt><dd><span class="code">Initialise&nbsp;les&nbsp;propriétés&nbsp;communes&nbsp;à&nbsp;tous&nbsp;les&nbsp;services.</span></dd></dl>
+
+<dl><dt><a name="Service-appliquer"><strong>appliquer</strong></a>(self)</dt><dd><span class="code">Méthode&nbsp;polymorphe&nbsp;devant&nbsp;être&nbsp;surchargée&nbsp;par&nbsp;les&nbsp;classes&nbsp;filles.<br>
+Définit&nbsp;l'action&nbsp;concrète&nbsp;à&nbsp;réaliser&nbsp;pour&nbsp;le&nbsp;service.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
