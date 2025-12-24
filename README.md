@@ -47,28 +47,7 @@ Interface Graphique : Tkinter
 Gestion de Qualité : Coverage.py / Unittest
 Format de Données : JSON 
 Validation : Expressions régulières (Regex)
-Diagramme UML: plantUML:
-## Conception et Modélisation
-
-### Diagramme de Classes (Héritage et Structure)
-```plantuml
-@startuml
-skinparam style strict
-abstract class Service {
-    + nom : str
-    + prix_base : float
-    + {abstract} calculer_cout()
-}
-class Lavage extends Service
-class Maintenance extends Service
-class Livraison extends Service
-class ParcDeStationnement {
-    + places : list
-    + attribuer_place()
-}
-ParcDeStationnement "1" *-- "many" PlaceDeParking
-Client "1" o-- "many" Service
-@enduml
+Diagramme UML: plantUML
 
 ## Méthodologie de Collaboration
 Bien que l'outil Git n'ait pas été utilisé pour ce projet (pour des raisons techniques), nous avons mis en place une gestion de versions manuelle et une répartition modulaire stricte :
