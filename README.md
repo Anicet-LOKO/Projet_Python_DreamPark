@@ -1,5 +1,5 @@
 # PROJET DREAM PARK - L3 MIASHS 2024-2025
-
+![Aperçu de l'interface](DreamPark_interface.png)
 Bienvenue dans le dépôt du projet DreamPark, une solution logicielle complète de gestion pour un parking automatisé.
 
 ## Equipe de Développement
@@ -25,6 +25,7 @@ Notre projet repose sur les piliers de la POO :
 ## Installation et Lancement
 1. Prérequis : Python 3.10 ou supérieur installé.
 2. Lancement de l'application :
+    cd partie4
     python main_partie4.py
 
 ## Documentation Technique (Pydoc)
@@ -46,7 +47,28 @@ Interface Graphique : Tkinter
 Gestion de Qualité : Coverage.py / Unittest
 Format de Données : JSON 
 Validation : Expressions régulières (Regex)
-Diagramme UML: plantUML
+Diagramme UML: plantUML:
+## Conception et Modélisation
+
+### Diagramme de Classes (Héritage et Structure)
+```plantuml
+@startuml
+skinparam style strict
+abstract class Service {
+    + nom : str
+    + prix_base : float
+    + {abstract} calculer_cout()
+}
+class Lavage extends Service
+class Maintenance extends Service
+class Livraison extends Service
+class ParcDeStationnement {
+    + places : list
+    + attribuer_place()
+}
+ParcDeStationnement "1" *-- "many" PlaceDeParking
+Client "1" o-- "many" Service
+@enduml
 
 ## Méthodologie de Collaboration
 Bien que l'outil Git n'ait pas été utilisé pour ce projet (pour des raisons techniques), nous avons mis en place une gestion de versions manuelle et une répartition modulaire stricte :
