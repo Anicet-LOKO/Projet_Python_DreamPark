@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module infrastructure</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">infrastructure</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cetu%5Cdesktop%5Cl3_miashs2025-2026%5Cpoo%20python%5Cprojet%5Cpartie4%5Cinfrastructure.py">c:\users\etu\desktop\l3_miashs2025-2026\poo python\projet\partie4\infrastructure.py</a></td></tr></table>
+    <p><span class="code">Module&nbsp;infrastructure&nbsp;et&nbsp;capteurs&nbsp;du&nbsp;DreamPark.<br>
+&nbsp;<br>
+Ce&nbsp;module&nbsp;simule&nbsp;les&nbsp;composants&nbsp;matériels&nbsp;physiques&nbsp;(capteurs&nbsp;laser,&nbsp;caméras,&nbsp;<br>
+automates&nbsp;de&nbsp;transport);&nbsp;ici&nbsp;on&nbsp;va&nbsp;définir&nbsp;la&nbsp;logique&nbsp;de&nbsp;la&nbsp;Borne&nbsp;d'Accès.<br>
+&nbsp;<br>
+Auteur&nbsp;:&nbsp;Anicet-Darcia</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="tkinter.messagebox.html">tkinter.messagebox</a><br>
+</td><td class="multicolumn"><a href="re.html">re</a><br>
+</td><td class="multicolumn"><a href="tkinter.simpledialog.html">tkinter.simpledialog</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="infrastructure.html#BorneDAcces">BorneDAcces</a>
+</dt><dt class="heading-text"><a href="infrastructure.html#BorneTicket">BorneTicket</a>
+</dt><dt class="heading-text"><a href="infrastructure.html#Camera">Camera</a>
+</dt><dt class="heading-text"><a href="infrastructure.html#Teleporteur">Teleporteur</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="BorneDAcces">class <strong>BorneDAcces</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#BorneDAcces">BorneDAcces</a>(nom_borne,&nbsp;secteur,&nbsp;parking_objet,&nbsp;base_clients)<br>
+&nbsp;<br>
+Interface&nbsp;principale&nbsp;entre&nbsp;le&nbsp;matériel&nbsp;et&nbsp;le&nbsp;système&nbsp;métier.<br>
+&nbsp;<br>
+Cette&nbsp;classe&nbsp;orchestre&nbsp;l'entrée&nbsp;et&nbsp;la&nbsp;sortie&nbsp;des&nbsp;véhicules&nbsp;en&nbsp;utilisant&nbsp;<br>
+les&nbsp;périphériques&nbsp;(caméra,&nbsp;automate,&nbsp;distributeur).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="BorneDAcces-__init__"><strong>__init__</strong></a>(self, nom_borne, secteur, parking_objet, base_clients)</dt><dd><span class="code">Initialise&nbsp;la&nbsp;borne&nbsp;avec&nbsp;ses&nbsp;périphériques&nbsp;matériels.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nom_borne&nbsp;(str):&nbsp;Identifiant&nbsp;de&nbsp;la&nbsp;borne.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;secteur&nbsp;(str):&nbsp;Localisation&nbsp;(Nord/Sud/Sortie).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parking_objet&nbsp;(ParcDeStationnement):&nbsp;Référence&nbsp;vers&nbsp;le&nbsp;métier.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;base_clients&nbsp;(GestionnaireClients):&nbsp;Référence&nbsp;vers&nbsp;la&nbsp;base&nbsp;de&nbsp;données.</span></dd></dl>
+
+<dl><dt><a name="BorneDAcces-gerer_fin_stationnement"><strong>gerer_fin_stationnement</strong></a>(self, plaque)</dt><dd><span class="code">Gère&nbsp;les&nbsp;notifications&nbsp;de&nbsp;sortie&nbsp;et&nbsp;affiche&nbsp;le&nbsp;détail&nbsp;des&nbsp;services,<br>
+incluant&nbsp;l'adresse&nbsp;de&nbsp;livraison&nbsp;saisie&nbsp;par&nbsp;le&nbsp;client.</span></dd></dl>
+
+<dl><dt><a name="BorneDAcces-traiter_vehicule"><strong>traiter_vehicule</strong></a>(self, plaque_immat)</dt><dd><span class="code">Gère&nbsp;le&nbsp;flux&nbsp;complet&nbsp;d'entrée&nbsp;d'un&nbsp;véhicule.<br>
+&nbsp;<br>
+Vérifie&nbsp;le&nbsp;format&nbsp;de&nbsp;plaque,&nbsp;identifie&nbsp;le&nbsp;client,&nbsp;mesure&nbsp;le&nbsp;gabarit,<br>
+propose&nbsp;des&nbsp;offres/services&nbsp;et&nbsp;attribue&nbsp;une&nbsp;place.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;plaque_immat&nbsp;(str):&nbsp;La&nbsp;plaque&nbsp;saisie&nbsp;ou&nbsp;scannée.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;L'identifiant&nbsp;de&nbsp;la&nbsp;place&nbsp;attribuée&nbsp;ou&nbsp;un&nbsp;code&nbsp;d'erreur/redirection.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="BorneTicket">class <strong>BorneTicket</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Gère&nbsp;l'impression&nbsp;physique&nbsp;des&nbsp;tickets&nbsp;de&nbsp;stationnement.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="BorneTicket-imprimer_ticket"><strong>imprimer_ticket</strong></a>(self, plaque, place)</dt><dd><span class="code">Génère&nbsp;le&nbsp;texte&nbsp;d'un&nbsp;ticket&nbsp;papier.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Camera">class <strong>Camera</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Simule&nbsp;une&nbsp;caméra&nbsp;de&nbsp;lecture&nbsp;automatique&nbsp;de&nbsp;plaques&nbsp;d'immatriculation&nbsp;(LAPI).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Camera-mesurer_gabarit"><strong>mesurer_gabarit</strong></a>(self)</dt><dd><span class="code">Simule&nbsp;la&nbsp;mesure&nbsp;automatique&nbsp;du&nbsp;véhicule&nbsp;par&nbsp;les&nbsp;capteurs.</span></dd></dl>
+
+<dl><dt><a name="Camera-scanner_plaque"><strong>scanner_plaque</strong></a>(self, plaque)</dt><dd><span class="code">Simule&nbsp;le&nbsp;scan&nbsp;optique&nbsp;d'une&nbsp;plaque.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Teleporteur">class <strong>Teleporteur</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Simule&nbsp;l'automate&nbsp;de&nbsp;transport&nbsp;robotisé&nbsp;qui&nbsp;déplace&nbsp;les&nbsp;véhicules&nbsp;vers&nbsp;les&nbsp;places.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Teleporteur-deplacer_vers"><strong>deplacer_vers</strong></a>(self, id_place)</dt><dd><span class="code">Simule&nbsp;le&nbsp;mouvement&nbsp;de&nbsp;l'automate.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
